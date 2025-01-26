@@ -1,0 +1,13 @@
+node_modules/
+vendor/
+*.gem
+.env
+*.env
+dist/
+build/
+*.log
+log/
+.DS_Store
+__pycache__/
+*.py[cod]
+db.sqlite3
