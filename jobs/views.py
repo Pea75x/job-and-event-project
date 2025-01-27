@@ -1,27 +1,46 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
-import math
 from django.http import JsonResponse
+from .flashtext_helper import extract_skills
+from .tech_skills_list import skills_list
+from .general_skills_list import general_skills_list
+import json
+
+def get_skills(request):
+    file_path = 'jobs/job_data.json'
+
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+        description = data["jobs"][1]["description"]
+    
+    skills = extract_skills(description, skills_list)
+    general_skills = extract_skills(description, general_skills_list)
+
+    return JsonResponse({'jobs': general_skills}, status=200)
+
+
 
 def get_jobs(request):
+    language = request.GET.get('language')
     headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"}
-    url='https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Python%20%28Programming%20Language%29&location=Las%20Vegas%2C%20Nevada%2C%20United%20States&geoId=100293800&currentJobId=3415227738&start={}'
     job_ids = []
     job_details = {}
     all_jobs = []
 
-    for i in range(0, 1):
-        res = requests.get(url.format(i), headers=headers)
-        soup = BeautifulSoup(res.text,'html.parser')
-        all_jobs_on_page = soup.find_all("li")
+    # get job ids
+    url=f'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords={language}&geoId=90009496&currentJobId=3415227738&start=0'
 
-        for x in range(0,len(all_jobs_on_page)):
-            jobid = all_jobs_on_page[x].find("div",{"class":"base-card"}).get('data-entity-urn').split(":")[3]
-            job_ids.append(jobid)
+    res = requests.get(url, headers=headers)
+    soup = BeautifulSoup(res.text,'html.parser')
+    all_jobs_on_page = soup.find_all("li")
 
+    for x in range(0,len(all_jobs_on_page)):
+        jobid = all_jobs_on_page[x].find("div",{"class":"base-card"}).get('data-entity-urn').split(":")[3]
+        job_ids.append(jobid)
+
+    # get job details
     target_url='https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/{}'
-    print(job_ids)
 
     for j in range(0, len(job_ids)):
         res = requests.get(target_url.format(job_ids[j]), headers=headers)
@@ -43,12 +62,19 @@ def get_jobs(request):
             job_details["level"] = None
 
         try:
-            job_details["description"] = soup.find("div", {"class": "description__text"}).text.strip()
+            job_description = soup.find("div", {"class": "description__text"}).text.strip()
+            job_details["technical_skills"] = extract_skills(job_description, skills_list)
+            job_details["general_skills"] = extract_skills(job_description, general_skills_list)
         except:
-            job_details["description"] = None
-        
+            job_details["technical_skills"] = None
+            job_details["general_skills"] = None
+
+        try:
+            job_details["link"] = f"https://www.linkedin.com/jobs/view/{job_ids[j]}/"
+        except:
+            job_details["link"] = None
+    
         all_jobs.append(job_details)
         job_details={}
 
     return JsonResponse({'jobs': all_jobs}, status=200)
-
