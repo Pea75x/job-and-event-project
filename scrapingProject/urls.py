@@ -21,5 +21,6 @@ from jobs.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/jobs/', get_jobs),
-    path('api/skills/', get_skills)
+    path('api/skills/', get_skills),
+    path('api/getpie/', get_pie)
 ]

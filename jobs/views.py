@@ -1,25 +1,51 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .flashtext_helper import extract_skills
+from .pie_chart_helper import get_pie
 from .tech_skills_list import skills_list
 from .general_skills_list import general_skills_list
 import json
 
 def get_skills(request):
-    file_path = 'jobs/job_data.json'
+    file_path = 'jobs/fake_data.json'
 
     with open(file_path, 'r') as file:
         data = json.load(file)
-        description = data["jobs"][1]["description"]
-    
-    skills = extract_skills(description, skills_list)
-    general_skills = extract_skills(description, general_skills_list)
+        jobs = data["jobs"]
+    pie_chart = get_pie(jobs, "technical_skills")
 
-    return JsonResponse({'jobs': general_skills}, status=200)
+    return JsonResponse({
+        "chart_image": pie_chart
+    })
 
+    # matplotlib.use('Agg')
+    # file_path = 'jobs/fake_data.json'
 
+    # with open(file_path, 'r') as file:
+    #     data = json.load(file)
+    #     jobs = data["jobs"]
+
+    # technical = []
+    # for job in jobs:
+    #         technical.extend(job["technical_skills"])
+    # tech_counts = Counter(technical)
+
+    # plt.figure(figsize=(10, 6))
+    # plt.bar(tech_counts.keys(), tech_counts.values(), color="blue")
+    # plt.xlabel("Technical Skills")
+    # plt.ylabel("Frequency")
+    # plt.title("Frequency of Technical Skills")
+    # plt.xticks(rotation=45)
+
+    # # Save chart to a BytesIO object
+    # buffer = io.BytesIO()
+    # plt.savefig(buffer, format="png")
+    # buffer.seek(0)
+    # plt.close()
+
+    # return HttpResponse(buffer, content_type="image/png")
 
 def get_jobs(request):
     language = request.GET.get('language')
@@ -77,4 +103,4 @@ def get_jobs(request):
         all_jobs.append(job_details)
         job_details={}
 
-    return JsonResponse({'jobs': all_jobs}, status=200)
+    return JsonResponse({'jobs': all_jobs, 'pie': "pie"}, status=200)
