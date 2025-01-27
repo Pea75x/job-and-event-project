@@ -1,0 +1,164 @@
+{
+    "jobs": [
+        {
+            "company": "Healios",
+            "job-title": "Software Engineer (Ruby on Rails)",
+            "level": "Associate",
+            "technical_skills": [
+                "Stimulus",
+                "Ruby on Rails"
+            ],
+            "general_skills": [
+                "Collaboration",
+                "Flexibility",
+                "Empathy"
+            ],
+            "link": "https://www.linkedin.com/jobs/view/4135228906/"
+        },
+        {
+            "company": "TipTopJob",
+            "job-title": "Ruby Developer",
+            "level": "Entry level",
+            "technical_skills": [
+                "TDD",
+                "Ruby on Rails"
+            ],
+            "general_skills": [
+                "Agile"
+            ],
+            "link": "https://www.linkedin.com/jobs/view/4123028727/"
+        },
+        {
+            "company": "Homey",
+            "job-title": "Ruby on Rails Senior Software Engineer/ Developer",
+            "level": "Mid-Senior level",
+            "technical_skills": [
+                "Ruby on Rails",
+                "Javascript"
+            ],
+            "general_skills": [
+                "Agile",
+                "Flexibility"
+            ],
+            "link": "https://www.linkedin.com/jobs/view/4133913232/"
+        },
+        {
+            "company": "TipTopJob",
+            "job-title": "Full Stack Ruby Developer",
+            "level": "Entry level",
+            "technical_skills": [
+                "React",
+                "Ruby on Rails"
+            ],
+            "general_skills": [],
+            "link": "https://www.linkedin.com/jobs/view/4123030580/"
+        },
+        {
+            "company": "Odicci",
+            "job-title": "Ruby Developer",
+            "level": "Entry level",
+            "technical_skills": [
+                "Next.js",
+                "CI/CD",
+                "testing",
+                "TypeScript",
+                "React",
+                "Angular"
+            ],
+            "general_skills": [
+                "Agile",
+                "scrum",
+                "Communication",
+                "Documentation",
+                "deployment"
+            ],
+            "link": "https://www.linkedin.com/jobs/view/4132266574/"
+        },
+        {
+            "company": "Security Roots Ltd",
+            "job-title": "[24-12] Full-Time > Remote Full-Stack Ruby on Rails Developer",
+            "level": "Not Applicable",
+            "technical_skills": [
+                "Nginx",
+                "Puma",
+                "Docker",
+                "Stimulus",
+                "MySQL",
+                "Javascript"
+            ],
+            "general_skills": [
+                "Organization"
+            ],
+            "link": "https://www.linkedin.com/jobs/view/4122003392/"
+        },
+        {
+            "company": "Oliver Bernard",
+            "job-title": "Ruby Developer",
+            "level": "Mid-Senior level",
+            "technical_skills": [
+                "testing",
+                "RSpec",
+                "AWS",
+                "Hotwire",
+                "Javascript"
+            ],
+            "general_skills": [],
+            "link": "https://www.linkedin.com/jobs/view/4135260702/"
+        },
+        {
+            "company": "TipTopJob",
+            "job-title": "Mid Level Ruby on Rails Developer",
+            "level": "Entry level",
+            "technical_skills": [
+                "ES6",
+                "testing",
+                "TDD",
+                "RSpec",
+                "Sidekiq",
+                "Docker",
+                "Capybara",
+                "BDD",
+                "Azure",
+                "Ruby on Rails",
+                "React",
+                "Continuous integration",
+                "Javascript"
+            ],
+            "general_skills": [
+                "Agile",
+                "Documentation",
+                "Communication"
+            ],
+            "link": "https://www.linkedin.com/jobs/view/4123032338/"
+        },
+        {
+            "company": "Hunter Bond",
+            "job-title": "Platform Engineer - Elite FinTech - £80,000-£130,000 + Bonus",
+            "level": "Mid-Senior level",
+            "technical_skills": [
+                "Docker",
+                "Kubernetes",
+                "CI/CD"
+            ],
+            "general_skills": [
+                "deployment"
+            ],
+            "link": "https://www.linkedin.com/jobs/view/4134827999/"
+        },
+        {
+            "company": "Koinly",
+            "job-title": "Sr. Ruby Developer",
+            "level": "Mid-Senior level",
+            "technical_skills": [
+                "GitHub",
+                "Ruby on Rails",
+                "GIT"
+            ],
+            "general_skills": [
+                "Leadership",
+                "Communication"
+            ],
+            "link": "https://www.linkedin.com/jobs/view/3690882010/"
+        }
+    ]
+}
