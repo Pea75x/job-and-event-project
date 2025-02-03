@@ -15,4 +15,12 @@ It will then return important information about each role such as job title, com
 Once we have these details it creates a pie chart of the most popular skills needed from all of the roles, to give you an idea of what skills would be useful to learn or of upcoming trends. It then returns a base64 of the chart.
 
 <img src="./readme/key-skills.png" alt='key-skills-chart' width="500" />
+An example of the key technical skills needed in ruby developer roles
+
 <img src="./readme/job-data.png" alt='job-data' width="500" />
+
+An example of the job data returned after scraping
+
+<img src="./readme/frontend.jpg" alt='frontend' width="500" />
+
+An example of the front end

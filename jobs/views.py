@@ -7,6 +7,7 @@ from .pie_chart_helper import get_pie
 from .tech_skills_list import skills_list
 from .general_skills_list import general_skills_list
 import json
+import matplotlib.pyplot as plt
 
 def get_skills(request):
     file_path = 'jobs/fake_data.json'
@@ -102,5 +103,8 @@ def get_jobs(request):
     
         all_jobs.append(job_details)
         job_details={}
+        technical_skills_pie = get_pie(all_jobs, "technical_skills")
+        general_skills_pie = get_pie(all_jobs, "general_skills")
 
-    return JsonResponse({'jobs': all_jobs, 'pie': "pie"}, status=200)
+
+    return JsonResponse({'jobs': all_jobs, 'technical_skills': technical_skills_pie, 'general_skills': general_skills_pie}, status=200)

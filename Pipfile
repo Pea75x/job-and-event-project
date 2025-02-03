@@ -8,6 +8,7 @@ beautifulsoup4 = "*"
 requests = "*"
 flashtext = "*"
 matplotlib = "*"
+django = "*"
 
 [dev-packages]
 

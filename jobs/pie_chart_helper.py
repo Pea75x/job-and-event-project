@@ -19,6 +19,7 @@ def get_pie(data, field):
     sizes = skill_counts.values()
 
     fig, ax = plt.subplots()
+    fig.patch.set_facecolor('#cce2cc')
     colors = ['#f3b0c3','#ecd5e3','#ffc8a2','#97c1a9','#55cbcd', '#d4f0f0', '#ff968a', '#cce2cb', '#fff4bc']
     explode = [0.1] * len(labels)
     ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors, explode=explode)
