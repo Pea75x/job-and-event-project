@@ -1,13 +1,12 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from .flashtext_helper import extract_skills
 from .pie_chart_helper import get_pie
 from .tech_skills_list import skills_list
 from .general_skills_list import general_skills_list
 import json
-import matplotlib.pyplot as plt
 
 def get_skills(request):
     file_path = 'jobs/fake_data.json'
